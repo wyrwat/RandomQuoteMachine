@@ -12,6 +12,10 @@ function getQuote() {
 }
 
 function createTweet(input) {
+    if(!Array.isArray(input)){
+        return;
+    }
+    //sprawdzic czy input jest tablica i czy ma przynajmniej jeden element //
     var data = input[0];
 
     var dataElement = document.createElement('div');
@@ -27,6 +31,7 @@ function createTweet(input) {
 
     if (tweetText.length > 140) {
         getQuote();
+        
     } else {
         var tweet = tweetLink + encodeURIComponent(tweetText);
         document.querySelector('.quote').innerText = quoteText;
